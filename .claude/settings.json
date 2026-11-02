@@ -1,0 +1,111 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+
+  "sandbox": {
+    "enabled": false
+  },
+
+  "permissions": {
+    "defaultMode": "default",
+    "disableBypassPermissionsMode": "disable",
+
+    "deny": [
+      "Edit(~/.claude/**)",
+      "Read(~/.claude/.credentials.json)",
+      "Edit(//etc/claude-code/**)",
+      "Read(~/.ssh/**)",
+      "Edit(~/.ssh/**)",
+      "Read(~/.agent-env)",
+      "Read(~/.aws/**)",
+      "Read(~/.config/gh/**)",
+      "Read(.env)",
+      "Read(id_rsa)",
+      "Read(id_ed25519)",
+      "Edit(//etc/**)",
+      "Edit(~/.bashrc)",
+      "Edit(~/.profile)",
+      "Edit(~/.gitconfig)",
+      "Edit(~/.git/hooks/**)",
+      "Bash(sudo *)",
+      "Bash(su *)",
+      "Bash(chmod 777 *)"
+    ],
+
+    "allow": [
+      "Bash(git status)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git add *)",
+      "Bash(git commit *)",
+      "Bash(npm run test *)",
+      "Bash(npm run lint *)",
+      "Bash(npm run typecheck *)",
+      "Bash(pytest *)",
+      "Bash(rg *)",
+      "Bash(fd *)",
+      "Bash(tree *)"
+    ],
+
+    "ask": [
+      "Bash(git push *)",
+      "Bash(npm publish *)",
+      "Bash(docker *)",
+      "Bash(gh pr merge:*)",
+      "Bash(gh release:*)",
+      "Bash(gh repo delete:*)",
+      "Bash(curl *)",
+      "Bash(wget *)"
+    ]
+  },
+
+  "env": {
+    "SECURITY_REVIEW_MODEL": "claude-opus-5",
+    "SG_AGENTIC_MODEL": "claude-opus-5"
+  },
+
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit|Write|NotebookEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/protect-files.sh"],
+            "timeout": 15,
+            "onFailure": "block"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/guard-bash.sh"],
+            "timeout": 15,
+            "onFailure": "block"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash",
+            "args": ["${CLAUDE_PROJECT_DIR}/.claude/hooks/format.sh"],
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  },
+
+  "enabledPlugins": {
+    "security-guidance@claude-plugins-official": true
+  }
+}

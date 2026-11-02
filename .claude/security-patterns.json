@@ -1,0 +1,35 @@
+{
+  "patterns": [
+    {
+      "rule_name": "hardcoded_key_prefix",
+      "substrings": ["sk_live_", "AKIA", "ghp_", "xoxb-", "-----BEGIN PRIVATE KEY-----"],
+      "reminder": "This looks like a real credential. Load it from the environment or the secret manager; never inline it."
+    },
+    {
+      "rule_name": "dangerous_eval",
+      "regex": "(eval\\(|new Function\\(|child_process\\.exec\\(|os\\.system\\()",
+      "reminder": "Dynamic code execution. Use a parameterized alternative, or justify in a comment why this input can never be attacker-controlled."
+    },
+    {
+      "rule_name": "unsafe_dom",
+      "regex": "(dangerouslySetInnerHTML|\\.innerHTML\\s*=|document\\.write\\()",
+      "reminder": "DOM injection sink. Sanitize with the project's sanitizer or render as text."
+    },
+    {
+      "rule_name": "unsafe_deserialization",
+      "regex": "(pickle\\.loads?\\(|Marshal\\.load\\()",
+      "reminder": "Unsafe deserialization. Use a safe loader."
+    },
+    {
+      "rule_name": "logged_secret",
+      "regex": "(console\\.log|logger?\\.(info|debug|warn|error))\\([^)]*\\b(token|password|secret|apiKey|api_key)\\b",
+      "reminder": "Possible credential in a log statement. Redact before logging."
+    },
+    {
+      "rule_name": "ci_workflow_edit",
+      "regex": ".",
+      "paths": ["**/.github/workflows/**"],
+      "reminder": "CI workflow change. Confirm this does not add permissions, secrets access, or a new third-party action."
+    }
+  ]
+}
