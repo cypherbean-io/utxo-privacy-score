@@ -1,0 +1,4 @@
+{
+  "_comment": "Copy to .mcp.json and commit. NEVER put a literal secret in this file. Reference environment variables instead; see https://code.claude.com/docs/en/mcp.md for the expansion syntax your version supports. Prefer scoping a server to a single subagent's mcpServers frontmatter over adding it here for the whole session.",
+  "mcpServers": {}
+}

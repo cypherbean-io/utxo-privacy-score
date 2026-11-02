@@ -1,0 +1,25 @@
+# Written by init-claude-repo.sh. The SHA-256 of each file as the scaffold last
+# wrote it, so --upgrade can tell your edits from its own content. Commit this file.
+# Do not edit it by hand, except to delete a line so --upgrade restores that file.
+# scaffold-version: 2026.10.15
+c1606f033c0228be866598401fb21226c7a8a23639e8ef1fee5d4e021f75ee1c  .claude/agents/security-reviewer.md
+04222dac8c9d2bbd4bd2c5e5efbad35a6f96658782d6455edfd795fdc0f061b6  .claude/agents/verifier.md
+7e4ae382d6da68cf368b9a85c737a449764c827bba7fa111d1402a9671b8042d  .claude/claude-security-guidance.md
+94dce22b0e9960e0992b1a3cd716f300e35fb56b8a25b5cc8e6a625637c9c068  .claude/hooks/format.sh
+4a20df42307414f5a69ef3af73aa2f601bd333311a07dbc58044a9162ac958b6  .claude/hooks/guard-bash.sh
+42cd587b22568fe19e4ca1cc32f3761889a3cb757e94b70d667dd9867ef5af5a  .claude/hooks/protect-files.sh
+bbce4688cc2285b7a25274b4776229ced299665d7ce56382ab66f7fb9376c4f8  .claude/rules/secrets.md
+441b6b2579f8da13a05e384838b9becc3390625046e18aa0c55743e999390742  .claude/rules/testing.md
+c6d98fc87130d0775251b8d568f09055008697c5d2f9c8bba0f8fcb2fbe96ab4  .claude/security-patterns.json
+f366e95b919046da28f9ba94bacdc79b2bd7383c08f20029054e1cbac71438cd  .claude/settings.json
+161774d38c4e12a667d73313da06184dd7d44b663b73b6bf9b0aaeeffaf0e4a4  .claude/settings.local.json.example
+2c26daf268c90b5b6151af87c7b257392af2c458c1f6fe362279a2cfc6e99fa8  .claude/SETTINGS-NOTES.md
+3acb48008b76150ca28d86cdfaad9724c1ad0aa94b82f06124bae62902db9239  .claude/skills/commit/SKILL.md
+a86f2721b76c469b8039a53d07c2207a5ba65607f1f170ebea8e6da3a598d442  .claude/skills/deep-research/SKILL.md
+dc5d7756da360c2e9cf55e5ba0f50fa9f0cb0c5f5ed135aa0ed48ddaa8a37451  .claude/skills/kickoff/SKILL.md
+8ed861f7a1eb42b8b4537ee107699706c22de7fbfe515266a32a5e661b802685  .claude/skills/ship/SKILL.md
+ad4513bcd0f9051852d0d3e408a333da37c8f16cdd2de9a9324f446061abc636  .claude/skills/slice/SKILL.md
+65b292c5dd66de1c4335d50c7dd6cb09d23720c984c26491656a55237f5f7f3b  .claude/skills/spec/SKILL.md
+2a8d307e02cbd12ca4de99c925d5132842eec8103723fe06f58f2f20021baaf9  docs/specs/README.md
+0ebfc600439b2bd4ec0ee8ce1b2764ea546af2bdf523fc745348d75b03e61563  .github/pull_request_template.md
+35c18170c3d704e79d759a13ebff5cb5d2fe94e9a34b968f9812398cdbbf49d0  .mcp.json.example
